@@ -20,18 +20,21 @@ def update_params(inputs):
 
     # Set all parameter values based on the input form
     for param in design.userParameters:
-        input_expression = inputs.itemById(param.name).value
+        if inputs.itemById(param.name).objectType == adsk.core.IntegerSliderCommandInput.classType():
+            input_expression = inputs.itemById(param.name).valueOne
+        else:
+            input_expression = inputs.itemById(param.name).value
 
         # Use Fusion Units Manager to validate user expression
-        if units_manager.isValidExpression(input_expression, units_manager.defaultLengthUnits):
+        #if units_manager.isValidExpression(input_expression, units_manager.defaultLengthUnits):
 
             # Set parameter value from input form
-            param.expression = input_expression
+        param.expression = str(input_expression)
 
-        else:
-            app_objects['ui'].messageBox("The following expression was invalid: \n" +
-                                         param.name + '\n' +
-                                         input_expression)
+        # else:
+        #     app_objects['ui'].messageBox("The following expression was invalid: \n" +
+        #                                  param.name + '\n' +
+        #                                  input_expression)
 
 
 class ParamEditCommand(Fusion360CommandBase):
@@ -47,6 +50,7 @@ class ParamEditCommand(Fusion360CommandBase):
         design = app_objects['design']
 
         for param in design.userParameters:
-            inputs.addStringValueInput(param.name,
+            inputs.addIntegerSliderCommandInput(param.name,
                                        param.name,
-                                       param.expression)
+                                       0,100,
+                                       False)
