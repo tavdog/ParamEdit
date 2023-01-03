@@ -1,13 +1,6 @@
-# ![](./resources/32x32.png) EditParam
+# ![](./resources/32x32.png) EditParam with sliders
 
-This is an [Autodesk Fusion 360](http://fusion360.autodesk.com/) script that's used for simply editing user parameters.
-
-
-![Change Parameters](./resources/cover_image.png)
-
-
-# Installation
-[Click here to download the Add-in](https://github.com/tapnair/ParamEdit/archive/master.zip)
+Original here : (https://github.com/tapnair/ParamEdit)
 
 After downloading the zip file follow the [installation instructions here](https://tapnair.github.io/installation.html) for your particular OS version of Fusion 360 
 
@@ -26,7 +19,7 @@ After downloading the zip file follow the [installation instructions here](https
 ## License
 Samples are licensed under the terms of the [MIT License](http://opensource.org/licenses/MIT). Please see the [LICENSE](LICENSE) file for full details.
 
-## Written by
+## Original Written by
 
 Written by [Patrick Rainsberry](https://twitter.com/prrainsberry) <br /> (Autodesk Fusion 360 Business Development)
 
