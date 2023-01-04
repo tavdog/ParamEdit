@@ -26,8 +26,12 @@ def get_inputs(command_inputs):
 
         # If the input type is in this list the value of the input is returned
         if command_input.objectType in value_types:
-            input_values[command_input.id] = command_input.value
-            input_values[command_input.id + '_input'] = command_input
+            if command_input.objectType == adsk.core.IntegerSliderCommandInput.classType():
+                input_values[command_input.id] = command_input.valueOne
+                input_values[command_input.id + '_input'] = command_input
+            else :
+                input_values[command_input.id] = command_input.value
+                input_values[command_input.id + '_input'] = command_input
 
         # If the input type is in this list the name of the selected list item is returned
         elif command_input.objectType in list_types:
